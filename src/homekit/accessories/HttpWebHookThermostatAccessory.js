@@ -93,7 +93,11 @@ HttpWebHookThermostatAccessory.prototype.changeFromServer = function(urlParams) 
     }
   }
   return {
-    "success" : true
+    "success" : true,
+    "currenttemperature": this.storage.getItemSync("http-webhook-current-temperature-" + this.id),
+    "targettemperature" : this.storage.getItemSync("http-webhook-target-temperature-" + this.id),
+    "currentstate": this.storage.getItemSync("http-webhook-current-heating-cooling-state-" + this.id),
+    "targetstate": this.storage.getItemSync("http-webhook-target-heating-cooling-state-" + this.id)
   };
 }
 
